@@ -42,13 +42,13 @@ def execute():
     stepsCamFocus = []
 
     for i in range(stepcount):
-        stepsCranePan.append(dCranePan*steps[i])
-        stepsCraneTilt.append(dCraneTilt*steps[i])
-        stepsCraneTele.append(dCraneTele*steps[i])
-        stepsCamPan.append(dCamPan*steps[i])
-        stepsCamTilt.append(dCamTilt*steps[i])
-        stepsCamZoom.append(dCamZoom*steps[i])
-        stepsCamFocus.append(dCamFocus*steps[i])
+        stepsCranePan.append(round(dCranePan*steps[i],3))
+        stepsCraneTilt.append(round(dCraneTilt*steps[i],3))
+        stepsCraneTele.append(round(dCraneTele*steps[i],3))
+        stepsCamPan.append(round(dCamPan*steps[i],3))
+        stepsCamTilt.append(round(dCamTilt*steps[i],3))
+        stepsCamZoom.append(round(dCamZoom*steps[i],3))
+        stepsCamFocus.append(round(dCamFocus*steps[i],3))
         
 
 
