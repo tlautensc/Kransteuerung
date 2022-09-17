@@ -1,5 +1,9 @@
 from Position import Position
+import logging
 import copy
+
+logging.basicConfig(filename="log.log", level=logging.INFO)
+
 
 activePos = Position(0,0,0,0,0,0,0)
 targetPos = Position(10,0,0,0,0,0,0)
@@ -20,6 +24,9 @@ def presetLoad(i):
     execute()
 
 def execute():
+    logger = logging.getLogger("execute")
+    logger.setLevel(logging.DEBUG)
+    
     stepcount = 20
     steps = []
 
@@ -33,6 +40,7 @@ def execute():
     dCamTilt = targetPos.camTilt - activePos.camTilt
     dCamZoom = targetPos.camZoom - activePos.camZoom
     dCamFocus = targetPos.camFocus - activePos.camFocus
+
     stepsCranePan = []
     stepsCraneTilt = []
     stepsCraneTele = []
@@ -49,7 +57,12 @@ def execute():
         stepsCamTilt.append(round(dCamTilt*steps[i],3))
         stepsCamZoom.append(round(dCamZoom*steps[i],3))
         stepsCamFocus.append(round(dCamFocus*steps[i],3))
-        
+
+    logger.debug(activePos.cranePan)
+    logger.debug(activePos)
+    activePos.update(targetPos.cranePan, targetPos.craneTilt, targetPos.craneTele, targetPos.camPan, targetPos.camTilt, targetPos.camZoom, targetPos.camFocus)
+    logger.debug(activePos.cranePan)
+    logger.debug(activePos)
 
 
 def smooth(x,m):

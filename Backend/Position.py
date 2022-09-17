@@ -16,6 +16,37 @@ class Position:
         self.camZoom = camZoom
         self.camFocus = camFocus
 
+    def update(self, cranePan, craneTilt, craneTele, camPan, camTilt, camZoom, camFocus):
+        self.cranePan = cranePan
+        self.craneTilt = craneTilt
+        self.craneTele = craneTele
+        self.camPan = camPan
+        self.camTilt = camTilt
+        self.camZoom = camZoom
+        self.camFocus = camFocus
+
+
+    def setCranePan(self, cranePan):
+        self.cranePan = cranePan
+    
+    def setCraneTilt(self, craneTilt):
+        self.craneTilt = craneTilt
+
+    def setCraneTele(self, craneTele):
+        self.craneTele = craneTele
+
+    def setCamPan(self, camPan):
+        self.camPan = camPan
+
+    def setCamTilt(self, camTilt):
+        self.camTilt = camTilt
+
+    def setCamZoom(self, camZoom):
+        self.camZoom = camZoom
+
+    def setCamFocus(self, camFocus):
+        self.camFocus = camFocus
+
     def changeCranePan(self, i):
         self.cranePan + i
         if self.cranePan > 270:
