@@ -1,4 +1,5 @@
 class Position:
+    name = "Leer"
     cranePan = 0
     craneTilt = 0
     craneTele = 0
@@ -25,6 +26,8 @@ class Position:
         self.camZoom = camZoom
         self.camFocus = camFocus
 
+    def setName(self, name):
+        self.name = name
 
     def setCranePan(self, cranePan):
         self.cranePan = cranePan

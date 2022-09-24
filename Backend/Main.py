@@ -2,6 +2,7 @@ from Position import Position
 from Translator import Translator
 import logging
 import copy
+import json
 
 logging.basicConfig(filename="log.log", level=logging.INFO)
 
@@ -12,10 +13,14 @@ time = 0
 smoothnes = 1
 stepcount = 20
 translator = Translator(stepcount)
-
+translator.buildSteps(1)
 
 for i in range(16):
-    presetPos.append(Position(0,0,0,0,0,0,0))
+    presetPos.append(Position(i,0,0,0,0,0,0))
+
+def execute(): 
+    translator.interpolate(activePos, targetPos)
+    activePos.update(targetPos.cranePan, targetPos.craneTilt, targetPos.craneTele, targetPos.camPan, targetPos.camTilt, targetPos.camZoom, targetPos.camFocus)
 
 def presetSave(i):
     global presetPos
@@ -26,11 +31,9 @@ def presetLoad(i):
     targetPos = copy.deepcopy(presetPos[i])
     execute()
 
-def execute(): 
-    translator.interpolate(activePos, targetPos)
-    activePos.update(targetPos.cranePan, targetPos.craneTilt, targetPos.craneTele, targetPos.camPan, targetPos.camTilt, targetPos.camZoom, targetPos.camFocus)
-    
+def saveShow(filename):
+    pass  
 
-translator.buildSteps(1)
-execute()
-execute()
+def loadShow(filename):
+    pass
+

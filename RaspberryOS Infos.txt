@@ -1,0 +1,6 @@
+Raspberry OS 64 bit Lite
+SSH aktiviert
+Tastaturlayout de
+WiFi nicht konfiguriert
+user: pi
+passwd: raspberry
