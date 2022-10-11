@@ -81,3 +81,6 @@ otg_mode=1
 arm_boost=1
 
 [all]
+dtoverlay=uart1
+dtoverlay=uart5
+dtoverlay=uart4
