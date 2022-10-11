@@ -7,6 +7,7 @@ for port in port_list:
     buff = bytearray(len(test_string))
     serialPort = serial.Serial(port, 115200, timeout = 2, writeTimeout = 2)
     bytes_sent = serialPort.write(test_string)
+    ok = True
   except IOError:
     pass
   print("port %s is %s" % (port, "OK" if ok else "NOT OK"))
